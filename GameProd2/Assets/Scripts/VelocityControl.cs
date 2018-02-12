@@ -103,4 +103,12 @@ public class VelocityControl : MonoBehaviour {
 		newVeloc = newVeloc.normalized;
 		rb.velocity = newVeloc * speed;
 	}
+    private void OnTriggerEnter2D(Collider2D col)
+    {
+
+        if (col.tag != gameObject.tag)
+        {
+            GameObject.Find("Spawner").GetComponent<SpawnerScript>().somebodyDied();
+        }
+    }
 }
