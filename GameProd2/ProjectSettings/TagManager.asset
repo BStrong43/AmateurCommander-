@@ -8,6 +8,8 @@ TagManager:
   - South
   - East
   - West
+  - Lion
+  - Herder
   layers:
   - Default
   - TransparentFX
