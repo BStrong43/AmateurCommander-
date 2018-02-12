@@ -221,10 +221,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10e58de0bc1b38d4390479c53d5f5bd2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lives: 3
+  waitTime: 5
   obj1: {fileID: 1978553695184560, guid: b4d23b07658c3f94499fff062bad4598, type: 2}
   obj2: {fileID: 1675559295041390, guid: 74973724fb44dc0418bf106136feceb2, type: 2}
-  obj3: {fileID: 1228200864697390, guid: 17f0217a43c26db46b6f69fe19ccf66e, type: 2}
-  obj4: {fileID: 1067958586198552, guid: 5edba6f4dffdaa6448a969bf77ce2f08, type: 2}
+  obj3: {fileID: 1675559295041390, guid: 74973724fb44dc0418bf106136feceb2, type: 2}
+  obj4: {fileID: 1978553695184560, guid: b4d23b07658c3f94499fff062bad4598, type: 2}
 --- !u!4 &1087950775
 Transform:
   m_ObjectHideFlags: 0
