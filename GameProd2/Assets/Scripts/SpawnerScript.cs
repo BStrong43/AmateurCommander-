@@ -34,13 +34,11 @@ public class SpawnerScript : MonoBehaviour {
 			spawnUnit ();
 		}
 
-        if (lives <= 0)
-        {
+        if (lives <= 0){
             youLose();
         }
 
-        if (timer >= waitTime)
-        {
+        if (timer >= waitTime){
             spawnUnit();
             timer = 0.0f;
             if (waitTime >= 1.5f)
@@ -101,15 +99,12 @@ public class SpawnerScript : MonoBehaviour {
 		return spawnPos;
 	}
 
-    void youLose()
-    {
+    void youLose(){
         SceneManager.LoadScene("LoseScreen", LoadSceneMode.Single);
     }
 
-    public void somebodyDied()
-    {
+    public void somebodyDied(){
         lives--;
         Debug.Log("Somebody Died | " + lives / 2 + " remaining");
     }
-
 }

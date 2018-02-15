@@ -57,7 +57,6 @@ public class VelocityControl : MonoBehaviour {
 
 		}
 	}
-
 	void randVeloc(){
 		Vector3 pos = transform.position;
 		int minX = 0, 
