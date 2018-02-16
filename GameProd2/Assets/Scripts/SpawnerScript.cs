@@ -13,17 +13,10 @@ public class SpawnerScript : MonoBehaviour {
                       lion,
                       poacher;
 
-	Vector3 eastSpawn,
-            westSpawn, 
-            northSpawn,
-            southSpawn;
+    public Transform[] positions;
+
 
 	void Start () {
-		eastSpawn = new Vector3 (9, 0);
-		westSpawn = new Vector3 (-9, 0);
-		northSpawn = new Vector3 (0, 6);
-		southSpawn = new Vector3 (0, -6);
-
 		spawnUnit ();
         lives *= 2;
 	}
@@ -50,11 +43,11 @@ public class SpawnerScript : MonoBehaviour {
 	}
 
 	void spawnUnit(){
-		Vector3 spawnPos = randPos ();
+		Transform spawnPos = randPos ();
 		GameObject obj = randUnit ();
-		GameObject.Instantiate (obj, spawnPos, Quaternion.identity);
+		GameObject.Instantiate (obj, spawnPos.transform.position, spawnPos.transform.rotation);
 
-        Vector3 spawnPos2 = randPos();
+        Transform spawnPos2 = randPos();
         GameObject obj2 = randUnit();
 
         while(spawnPos2 == spawnPos)
@@ -66,7 +59,7 @@ public class SpawnerScript : MonoBehaviour {
             obj = randUnit();
         }
 
-        GameObject.Instantiate(obj2, spawnPos2, Quaternion.identity);
+        GameObject.Instantiate(obj2, spawnPos.transform.position, spawnPos.transform.rotation);
 
     }
 
@@ -88,26 +81,9 @@ public class SpawnerScript : MonoBehaviour {
 		return obj;
 	}
 
-	Vector3 randPos(){
-		int choice = Random.Range (1, 5);
-
-		Vector3 spawnPos = new Vector3();
-
-		switch (choice) {
-		case 1:
-			spawnPos = eastSpawn;
-			break;
-		case 2:
-			spawnPos = westSpawn;
-			break;
-		case 3:
-			spawnPos = northSpawn;
-			break;
-		case 4:
-			spawnPos = southSpawn;
-			break;
-		}
-		return spawnPos;
+	Transform randPos(){
+		int choice = Random.Range (1, positions.Length);
+        return positions[choice];
 	}
 
     void youLose(){
