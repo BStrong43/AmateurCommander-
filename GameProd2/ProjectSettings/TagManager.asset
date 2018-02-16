@@ -10,6 +10,7 @@ TagManager:
   - West
   - Lion
   - Herder
+  - SpawnPoints
   layers:
   - Default
   - TransparentFX
