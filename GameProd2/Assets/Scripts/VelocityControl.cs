@@ -36,7 +36,12 @@ public class VelocityControl : MonoBehaviour {
 
 	}
 
-	void OnMouseUp(){
+    private void OnMouseDrag()
+    {
+        transform.position = objPos;
+    }
+
+    void OnMouseUp(){
 		if (isDragged) {
 			mousePos = Camera.main.ScreenToWorldPoint (Input.mousePosition);
 			Debug.Log (objPos);
@@ -105,7 +110,7 @@ public class VelocityControl : MonoBehaviour {
     private void OnTriggerEnter2D(Collider2D col)
     {
 
-        if (col.tag != gameObject.tag)
+        if (col.tag != gameObject.tag && gameObject.tag != "Lion")
         {
             GameObject.Find("Spawner").GetComponent<SpawnerScript>().somebodyDied();
         }

@@ -8,10 +8,9 @@ public class SpawnerScript : MonoBehaviour {
     public float waitTime;
     float timer = 0.0f;
 
-	public GameObject obj1,
-                      obj2,
-                      obj3,
-                      obj4;
+    public GameObject herder,
+                      lion,
+                      poacher;
 
 	Vector3 eastSpawn,
             westSpawn, 
@@ -53,26 +52,37 @@ public class SpawnerScript : MonoBehaviour {
 		Vector3 spawnPos = randPos ();
 		GameObject obj = randUnit ();
 		GameObject.Instantiate (obj, spawnPos, Quaternion.identity);
-	}
+
+        Vector3 spawnPos2 = randPos();
+        GameObject obj2 = randUnit();
+
+        while(spawnPos2 == spawnPos)
+        {
+            spawnPos2 = randPos();
+        }
+        while (obj2 == obj)
+        {
+            obj = randUnit();
+        }
+
+        GameObject.Instantiate(obj2, spawnPos2, Quaternion.identity);
+
+    }
 
 	GameObject randUnit(){
 		int choice = Random.Range (1, 5);
-        GameObject obj = obj1;
+        GameObject obj = herder;
 
 		switch (choice) {
 		case 1:
-			obj = obj1;
+			obj = herder;
 			break;
 		case 2:
-			obj = obj2;
+			obj = lion;
 			break;
 		case 3:
-			obj = obj3;
+			obj = poacher;
 			break;
-		case 4:
-			obj = obj4;
-			break;
-
 		}
 		return obj;
 	}
