@@ -72,45 +72,61 @@ public class VelocityControl : MonoBehaviour {
 			maxY = 0;
 		Vector2 newVeloc;
 
-		if (pos.x == 0) {
-			if (pos.y > 0) {
-				minX = -3;
-				maxX = 3;
-				minY = -3;
-				maxY = -3;
-				Debug.Log ("North Spawn");
-			}
-
-			if (pos.y < 0) {
-				minX = -3;
-				maxX = 3;
-				minY = 3;
-				maxY = 3;
-				Debug.Log ("South Spawn");
-			}
-		} else if (pos.y == 0) {
+		if (pos.y == 0) {
 			if (pos.x > 0) {
 				minY = -3;
 				maxY = 3;
-				minX = -3;
-				maxX = -3;
+				minX = -4;
+				maxX = -4;
 				Debug.Log ("West Spawn");
 			}
 			if (pos.x < 0) {
 				minY = -3;
 				maxY = 3;
-				minX = 3;
-				maxX = 3;
+				minX = 4;
+				maxX = 4;
 				Debug.Log ("East Spawn");
 			}
 		}
-
+		if (pos.y == 3) {
+			if (pos.x > 0) {
+				minY = -3;
+				maxY = 1;
+				minX = -4;
+				maxX = -4;
+				Debug.Log ("West Spawn");
+			}
+			if (pos.x < 0) {
+				minY = -3;
+				maxY = 1;
+				minX = 4;
+				maxX = 4;
+				Debug.Log ("East Spawn");
+			}
+		}
+		if (pos.y == -3) {
+			if (pos.x > 0) {
+				minY = -3;
+				maxY = 1;
+				minX = -4;
+				maxX = -4;
+				Debug.Log ("West Spawn");
+			}
+			if (pos.x < 0) {
+				minY = -3;
+				maxY = 1;
+				minX = 4;
+				maxX = 4;
+				Debug.Log ("East Spawn");
+			}
+		}
 		newVeloc = new Vector2 (Random.Range (minX, maxX), Random.Range (minY, maxY));
 		newVeloc = newVeloc.normalized;
 		rb.velocity = newVeloc * speed;
+	
 	}
-    private void OnTriggerEnter2D(Collider2D col)
-    {
+
+    private void OnTriggerEnter2D(Collider2D col){
 
         if (col.tag != gameObject.tag && gameObject.tag != "Lion")
         {

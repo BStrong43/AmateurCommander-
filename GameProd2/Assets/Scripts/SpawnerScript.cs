@@ -6,8 +6,11 @@ public class SpawnerScript : MonoBehaviour {
 
     public int lives;
     public float waitTime;
+	public float waitTime2;
     public float waitTimeDecrease;
-    float timer = 0.0f;
+	public float waitTimeDecrease2;
+    float timer1 = 0.0f;
+	float timer2 = 0.0f;
 
     public GameObject herder,
                       lion,
@@ -17,12 +20,11 @@ public class SpawnerScript : MonoBehaviour {
 
 
 	void Start () {
-		spawnUnit ();
         lives *= 2;
 	}
 
 	void Update () {
-        timer += Time.deltaTime;
+        
 		if (Input.GetKeyDown (KeyCode.Space)) {
 			spawnUnit ();
 		}
@@ -30,36 +32,38 @@ public class SpawnerScript : MonoBehaviour {
         if (lives <= 0){
             youLose();
         }
+		runTimer ();
+	}
 
-        if (timer >= waitTime){
-            spawnUnit();
-            timer = 0.0f;
-            if (waitTime >= 1.5f)
-            {
-                waitTime -= waitTimeDecrease;
-            }
-            Debug.Log("Wait Time = " + waitTime);
-        }
+	void runTimer(){
+		timer1 += Time.deltaTime;
+
+		if (timer1 >= waitTime){
+			spawnUnit();
+			timer1 = 0.0f;
+			if (waitTime >= 1.5f)
+			{
+				waitTime -= waitTimeDecrease;
+			}
+		}
+
+		timer2 += Time.deltaTime;
+
+		if (timer2 >= waitTime2){
+			spawnUnit();
+			timer2 = 0.0f;
+			if (waitTime2 >= 1.5f)
+			{
+				waitTime2 -= waitTimeDecrease2;
+			}
+		}
+
 	}
 
 	void spawnUnit(){
 		Transform spawnPos = randPos ();
 		GameObject obj = randUnit ();
 		GameObject.Instantiate (obj, spawnPos.transform.position, spawnPos.transform.rotation);
-
-        Transform spawnPos2 = randPos();
-        GameObject obj2 = randUnit();
-
-        while(spawnPos2 == spawnPos)
-        {
-            spawnPos2 = randPos();
-        }
-        while (obj2 == obj)
-        {
-            obj = randUnit();
-        }
-
-        GameObject.Instantiate(obj2, spawnPos.transform.position, spawnPos.transform.rotation);
 
     }
 
