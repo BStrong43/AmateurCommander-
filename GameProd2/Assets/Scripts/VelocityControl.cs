@@ -30,10 +30,12 @@ public class VelocityControl : MonoBehaviour {
 	}
 
 	void OnMouseDown(){
-		objPos = transform.position;
-		isDragged = true;
-		sr.color = clicked;
-
+        if (gameObject.tag != "Lion")
+        {
+            objPos = transform.position;
+            isDragged = true;
+            sr.color = clicked;
+        }
 	}
 
     private void OnMouseDrag()
