@@ -6,6 +6,7 @@ public class SpawnerScript : MonoBehaviour {
 
     public int lives;
     public float waitTime;
+    public float waitTimeDecrease;
     float timer = 0.0f;
 
     public GameObject herder,
@@ -42,7 +43,7 @@ public class SpawnerScript : MonoBehaviour {
             timer = 0.0f;
             if (waitTime >= 1.5f)
             {
-                waitTime -= 0.3f;
+                waitTime -= waitTimeDecrease;
             }
             Debug.Log("Wait Time = " + waitTime);
         }
