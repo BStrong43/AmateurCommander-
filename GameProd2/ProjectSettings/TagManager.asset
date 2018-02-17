@@ -12,6 +12,7 @@ TagManager:
   - Herder
   - SpawnPoints
   - Poacher
+  - Destroyer
   layers:
   - Default
   - TransparentFX
