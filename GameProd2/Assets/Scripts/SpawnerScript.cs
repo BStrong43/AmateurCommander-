@@ -32,7 +32,7 @@ public class SpawnerScript : MonoBehaviour {
         if (lives <= 0){
             youLose();
         }
-		runTimer ();
+		//runTimer ();
 	}
 
 	void runTimer(){

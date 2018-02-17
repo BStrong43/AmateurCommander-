@@ -127,10 +127,10 @@ public class VelocityControl : MonoBehaviour {
 	}
 
     private void OnTriggerEnter2D(Collider2D col){
-
-        if (col.tag != gameObject.tag && gameObject.tag != "Lion")
-        {
-            GameObject.Find("Spawner").GetComponent<SpawnerScript>().somebodyDied();
-        }
+		if (col.tag != "Destroyer") {
+			if (col.tag != gameObject.tag && gameObject.tag != "Lion") {
+				GameObject.Find ("Spawner").GetComponent<SpawnerScript> ().somebodyDied ();
+			}
+		}
     }
 }
