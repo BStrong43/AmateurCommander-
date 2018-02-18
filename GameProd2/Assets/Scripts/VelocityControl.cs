@@ -40,7 +40,9 @@ public class VelocityControl : MonoBehaviour {
 
     private void OnMouseDrag()
     {
-        transform.position = objPos;
+        if (isDragged) {
+            transform.position = objPos;
+        }
     }
 
     void OnMouseUp(){
