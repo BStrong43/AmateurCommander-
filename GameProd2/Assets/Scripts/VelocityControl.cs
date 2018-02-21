@@ -6,7 +6,7 @@ public class VelocityControl : MonoBehaviour {
 
 	// Use this for initialization
 	public float speed;
-	bool isDragged;
+	public bool isDragged;
 	Vector2 objPos, 
 			mousePos;
 
@@ -48,22 +48,18 @@ public class VelocityControl : MonoBehaviour {
     void OnMouseUp(){
 		if (isDragged) {
 			mousePos = Camera.main.ScreenToWorldPoint (Input.mousePosition);
-			Debug.Log (objPos);
-			Debug.Log (mousePos);
 
 			float x, y;
 			x = objPos.x - mousePos.x;
 			y = objPos.y - mousePos.y;
 
 			Vector2 newVelocity = new Vector2(-x,-y);
-			newVelocity = newVelocity.normalized;
-			Debug.Log (newVelocity);
+            newVelocity = newVelocity.normalized;
 
 			newVelocity *= speed;
 			rb.velocity = newVelocity;
 
 			sr.color = unclicked;
-
 		}
 	}
 	void randVeloc(){
@@ -80,14 +76,12 @@ public class VelocityControl : MonoBehaviour {
 				maxY = 3;
 				minX = -4;
 				maxX = -4;
-				Debug.Log ("West Spawn");
 			}
 			if (pos.x < 0) {
 				minY = -3;
 				maxY = 3;
 				minX = 4;
 				maxX = 4;
-				Debug.Log ("East Spawn");
 			}
 		}
 		if (pos.y == 3) {
@@ -95,15 +89,13 @@ public class VelocityControl : MonoBehaviour {
 				minY = -3;
 				maxY = 1;
 				minX = -4;
-				maxX = -4;
-				Debug.Log ("West Spawn");
+                maxX = -4;
 			}
 			if (pos.x < 0) {
 				minY = -3;
 				maxY = 1;
 				minX = 4;
 				maxX = 4;
-				Debug.Log ("East Spawn");
 			}
 		}
 		if (pos.y == -3) {
@@ -112,14 +104,12 @@ public class VelocityControl : MonoBehaviour {
 				maxY = 1;
 				minX = -4;
 				maxX = -4;
-				Debug.Log ("West Spawn");
 			}
 			if (pos.x < 0) {
 				minY = -3;
 				maxY = 1;
 				minX = 4;
 				maxX = 4;
-				Debug.Log ("East Spawn");
 			}
 		}
 		newVeloc = new Vector2 (Random.Range (minX, maxX), Random.Range (minY, maxY));

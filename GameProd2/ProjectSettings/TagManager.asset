@@ -13,6 +13,7 @@ TagManager:
   - SpawnPoints
   - Poacher
   - Destroyer
+  - AggroRange
   layers:
   - Default
   - TransparentFX

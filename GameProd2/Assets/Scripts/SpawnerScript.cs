@@ -12,6 +12,8 @@ public class SpawnerScript : MonoBehaviour {
     float timer1 = 0.0f;
 	float timer2 = 0.0f;
 
+    public bool willSpawn;
+
     public GameObject herder,
                       lion,
                       poacher;
@@ -32,7 +34,10 @@ public class SpawnerScript : MonoBehaviour {
         if (lives <= 0){
             youLose();
         }
-		runTimer ();
+        if (willSpawn)
+        {
+            runTimer();
+        }
 	}
 
 	void runTimer(){

@@ -364,6 +364,7 @@ MonoBehaviour:
   waitTime2: 5.09
   waitTimeDecrease: 0.15
   waitTimeDecrease2: 0.33
+  willSpawn: 1
   herder: {fileID: 1675559295041390, guid: d8592871b92a41b4992ad3f62cc812d5, type: 2}
   lion: {fileID: 1978553695184560, guid: 1a5d6e1de047c1a4f8c696fb358ac95d, type: 2}
   poacher: {fileID: 1228200864697390, guid: 17f0217a43c26db46b6f69fe19ccf66e, type: 2}
@@ -423,7 +424,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1362297468}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -9, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
